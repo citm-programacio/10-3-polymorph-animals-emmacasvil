@@ -4,19 +4,25 @@
 #include <iostream>
 using namespace std; 
 
-class Animal {
+class Animal { //pure abstract class
 public:
     virtual void speak() { cout << "hiii" << endl; };
+
+    virtual void eat() {};
+
+    virtual ~Animal() {}; 
 };
 
 class dog : public Animal {
 public: 
     void speak() override { cout << "guau" << endl; }
+    void eat() override { cout << "the dog is eating" << endl; }
 };
 
 class cat : public Animal {
 public:  
     void speak() override { cout << "miau" << endl; }
+    void eat() override { cout << "the cat is eating" << endl; }
 };
 
 
@@ -29,6 +35,9 @@ int main()
     animalMain.speak(); 
     dogMain.speak();
     catMain.speak();
+
+    dogMain.eat(); 
+    catMain.eat(); 
 }
 
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
